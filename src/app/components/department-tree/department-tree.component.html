@@ -1,0 +1,51 @@
+<div class="department-tree">
+  <div class="tree-header">
+    <h2>Department Selection</h2>
+  </div>
+  
+  <div class="search-container">
+    <input 
+      type="text" 
+      class="search-input" 
+      placeholder="Search departments..." 
+      [(ngModel)]="searchTerm"
+      (input)="onSearchChange()"
+      autocomplete="off">
+    <button 
+      *ngIf="searchTerm && searchTerm.trim().length > 0"
+      class="search-clear-btn"
+      (click)="onClearSearch()"
+      title="Clear search">
+      ✕
+    </button>
+    <span class="search-icon">🔍</span>
+  </div>
+  
+  <div class="tree-actions">
+    <button class="action-btn expand-btn" (click)="onExpandAll()" title="Expand All">
+      <span>⊞</span> Expand All
+    </button>
+    <button class="action-btn collapse-btn" (click)="onCollapseAll()" title="Collapse All">
+      <span>⊟</span> Collapse All
+    </button>
+    <button class="action-btn clear-btn" (click)="onClearAll()" title="Clear All Selections">
+      <span>✕</span> Clear
+    </button>
+  </div>
+  
+  <!-- Horizontal scroll hint for deeply nested content -->
+  <div class="scroll-hint" *ngIf="hasDeepNesting()">
+    <span class="hint-icon">↔️</span>
+    <span class="hint-text">Scroll horizontally to view deeply nested departments</span>
+  </div>
+  
+  <div class="tree-container" [class.deep-nesting]="hasDeepNesting()">
+    <app-department-tree-item
+      *ngFor="let node of filteredTreeNodes"
+      [node]="node"
+      [level]="0"
+      (selectionToggle)="onNodeSelectionToggle($event)"
+      (expansionToggle)="onNodeExpansionToggle($event)">
+    </app-department-tree-item>
+  </div>
+</div> 

@@ -1,0 +1,113 @@
+<div class="page-wrapper">
+  <!-- Header -->
+  <div class="app-header">
+    <h1>Department Selection</h1>
+    <div class="data-source-selector">
+      <label for="dataSource">Data Source:</label>
+      <select 
+        id="dataSource" 
+        class="data-source-dropdown" 
+        [(ngModel)]="selectedDataSource" 
+        (change)="onDataSourceChange()">
+        <option 
+          *ngFor="let source of availableDataSources" 
+          [value]="source.value"
+          [title]="source.description">
+          {{ source.label }}
+        </option>
+      </select>
+      <div class="upload-container">
+        <input 
+          type="file" 
+          #fileInput 
+          accept=".json" 
+          (change)="onFileUpload($event)"
+          style="display: none;">
+        <button 
+          class="upload-btn" 
+          (click)="fileInput.click()"
+          title="Upload JSON file">
+          📁 Upload
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Flex Row: Sidebar + Main Content -->
+  <div class="app-container">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="selected-count">
+        Selected: {{ selectedDepartments.length }} departments
+      </div>
+      <div class="sidebar-content">
+        <app-department-tree
+          [departments]="departments"
+          [preSelectedIds]="preSelectedIds"
+          (selectionChanged)="onSelectionChanged($event)">
+        </app-department-tree>
+      </div>
+    </aside>
+    <!-- Main Content -->
+    <main class="main-content">
+      <div class="main-content-header">
+        <h2>Selection Summary</h2>
+        <p class="content-description">Review and manage your selected departments</p>
+      </div>
+      
+      <div class="content-sections">
+        <!-- Selected Department IDs Section -->
+        <section class="selected-department-section">
+          <div class="selected-results">
+            <h3>Selected Department IDs:</h3>
+            <div class="selected-ids">
+              <span *ngIf="selectedDepartments.length === 0" class="no-selection">
+                No departments selected yet. Use the tree on the left to make selections.
+              </span>
+              <span *ngIf="selectedDepartments.length > 0">
+                {{ selectedDepartments.join(', ') }}
+              </span>
+            </div>
+          </div>
+        </section>
+
+        <!-- Statistics Section -->
+        <section class="statistics-section" *ngIf="selectedDepartments.length > 0">
+          <div class="stats-card">
+            <h3>Selection Statistics</h3>
+            <div class="stats-grid">
+              <div class="stat-item">
+                <span class="stat-number">{{ selectedDepartments.length }}</span>
+                <span class="stat-label">Selected</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-number">{{ departments.length }}</span>
+                <span class="stat-label">Total Available</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-number">{{ getSelectionPercentage() }}%</span>
+                <span class="stat-label">Coverage</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Instructions Section -->
+        <section class="instructions-section" *ngIf="selectedDepartments.length === 0">
+          <div class="instructions-card">
+            <h3>How to Use</h3>
+            <ul class="instruction-list">
+              <li>📁 <strong>Upload:</strong> Use the upload button to add your own JSON files</li>
+              <li>🔍 <strong>Search:</strong> Use the search bar to find specific departments</li>
+              <li>☑️ <strong>Select:</strong> Check the boxes next to departments you want</li>
+              <li>📊 <strong>Expand:</strong> Click arrows to expand/collapse categories</li>
+              <li>🧹 <strong>Clear:</strong> Use action buttons to expand all, collapse all, or clear selections</li>
+            </ul>
+          </div>
+        </section>
+      </div>
+    </main>
+  </div>
+
+  <router-outlet />
+</div>

@@ -1,0 +1,327 @@
+[
+    {
+      "OID": 500,
+      "Title": "Science & Technology",
+      "Color": "#4A90E2",
+      "DepartmentParent_OID": null
+    },
+    {
+      "OID": 501,
+      "Title": "Physics",
+      "Color": "#4A90E2",
+      "DepartmentParent_OID": 500
+    },
+    {
+      "OID": 502,
+      "Title": "Quantum Mechanics",
+      "Color": "#4A90E2",
+      "DepartmentParent_OID": 501
+    },
+    {
+      "OID": 503,
+      "Title": "Astrophysics",
+      "Color": "#4A90E2",
+      "DepartmentParent_OID": 501
+    },
+    {
+      "OID": 504,
+      "Title": "Computer Science",
+      "Color": "#4A90E2",
+      "DepartmentParent_OID": 500
+    },
+    {
+      "OID": 505,
+      "Title": "AI & Machine Learning",
+      "Color": "#4A90E2",
+      "DepartmentParent_OID": 504
+    },
+    {
+      "OID": 506,
+      "Title": "Cybersecurity",
+      "Color": "#4A90E2",
+      "DepartmentParent_OID": 504
+    },
+    {
+      "OID": 507,
+      "Title": "Software Development",
+      "Color": "#4A90E2",
+      "DepartmentParent_OID": 504
+    },
+    {
+      "OID": 508,
+      "Title": "Biology",
+      "Color": "#4A90E2",
+      "DepartmentParent_OID": 500
+    },
+    {
+      "OID": 509,
+      "Title": "Genetics",
+      "Color": "#4A90E2",
+      "DepartmentParent_OID": 508
+    },
+    {
+      "OID": 510,
+      "Title": "Marine Biology",
+      "Color": "#4A90E2",
+      "DepartmentParent_OID": 508
+    },
+    {
+      "OID": 511,
+      "Title": "Engineering",
+      "Color": "#4A90E2",
+      "DepartmentParent_OID": 500
+    },
+    {
+      "OID": 512,
+      "Title": "Mechanical",
+      "Color": "#4A90E2",
+      "DepartmentParent_OID": 511
+    },
+    {
+      "OID": 513,
+      "Title": "Electrical",
+      "Color": "#4A90E2",
+      "DepartmentParent_OID": 511
+    },
+    {
+      "OID": 600,
+      "Title": "Arts & Culture",
+      "Color": "#D0021B",
+      "DepartmentParent_OID": null
+    },
+    {
+      "OID": 601,
+      "Title": "Visual Arts",
+      "Color": "#D0021B",
+      "DepartmentParent_OID": 600
+    },
+    {
+      "OID": 602,
+      "Title": "Painting",
+      "Color": "#D0021B",
+      "DepartmentParent_OID": 601
+    },
+    {
+      "OID": 603,
+      "Title": "Sculpture",
+      "Color": "#D0021B",
+      "DepartmentParent_OID": 601
+    },
+    {
+      "OID": 604,
+      "Title": "Photography",
+      "Color": "#D0021B",
+      "DepartmentParent_OID": 601
+    },
+    {
+      "OID": 605,
+      "Title": "Performing Arts",
+      "Color": "#D0021B",
+      "DepartmentParent_OID": 600
+    },
+    {
+      "OID": 606,
+      "Title": "Theater",
+      "Color": "#D0021B",
+      "DepartmentParent_OID": 605
+    },
+    {
+      "OID": 607,
+      "Title": "Dance",
+      "Color": "#D0021B",
+      "DepartmentParent_OID": 605
+    },
+    {
+      "OID": 608,
+      "Title": "Music",
+      "Color": "#D0021B",
+      "DepartmentParent_OID": 605
+    },
+    {
+      "OID": 609,
+      "Title": "Literature",
+      "Color": "#D0021B",
+      "DepartmentParent_OID": 600
+    },
+    {
+      "OID": 700,
+      "Title": "Business & Finance",
+      "Color": "#417505",
+      "DepartmentParent_OID": null
+    },
+    {
+      "OID": 701,
+      "Title": "Global Markets",
+      "Color": "#417505",
+      "DepartmentParent_OID": 700
+    },
+    {
+      "OID": 702,
+      "Title": "Equities",
+      "Color": "#417505",
+      "DepartmentParent_OID": 701
+    },
+    {
+      "OID": 703,
+      "Title": "Bonds",
+      "Color": "#417505",
+      "DepartmentParent_OID": 701
+    },
+    {
+      "OID": 704,
+      "Title": "Commodities",
+      "Color": "#417505",
+      "DepartmentParent_OID": 701
+    },
+    {
+      "OID": 705,
+      "Title": "Economics",
+      "Color": "#417505",
+      "DepartmentParent_OID": 700
+    },
+    {
+      "OID": 706,
+      "Title": "Macroeconomics",
+      "Color": "#417505",
+      "DepartmentParent_OID": 705
+    },
+    {
+      "OID": 707,
+      "Title": "Real Estate",
+      "Color": "#417505",
+      "DepartmentParent_OID": 700
+    },
+    {
+      "OID": 800,
+      "Title": "Sports",
+      "Color": "#F5A623",
+      "DepartmentParent_OID": null
+    },
+    {
+      "OID": 801,
+      "Title": "Team Sports",
+      "Color": "#F5A623",
+      "DepartmentParent_OID": 800
+    },
+    {
+      "OID": 802,
+      "Title": "Soccer",
+      "Color": "#F5A623",
+      "DepartmentParent_OID": 801
+    },
+    {
+      "OID": 803,
+      "Title": "Basketball",
+      "Color": "#F5A623",
+      "DepartmentParent_OID": 801
+    },
+    {
+      "OID": 804,
+      "Title": "American Football",
+      "Color": "#F5A623",
+      "DepartmentParent_OID": 801
+    },
+    {
+      "OID": 805,
+      "Title": "Baseball",
+      "Color": "#F5A623",
+      "DepartmentParent_OID": 801
+    },
+    {
+      "OID": 806,
+      "Title": "Individual Sports",
+      "Color": "#F5A623",
+      "DepartmentParent_OID": 800
+    },
+    {
+      "OID": 807,
+      "Title": "Tennis",
+      "Color": "#F5A623",
+      "DepartmentParent_OID": 806
+    },
+    {
+      "OID": 808,
+      "Title": "Golf",
+      "Color": "#F5A623",
+      "DepartmentParent_OID": 806
+    },
+    {
+      "OID": 809,
+      "Title": "Athletics",
+      "Color": "#F5A623",
+      "DepartmentParent_OID": 806
+    },
+    {
+      "OID": 810,
+      "Title": "Motorsports",
+      "Color": "#F5A623",
+      "DepartmentParent_OID": 800
+    },
+    {
+      "OID": 811,
+      "Title": "E-Sports",
+      "Color": "#F5A623",
+      "DepartmentParent_OID": 800
+    },
+    {
+      "OID": 900,
+      "Title": "Lifestyle & Home",
+      "Color": "#9013FE",
+      "DepartmentParent_OID": null
+    },
+    {
+      "OID": 901,
+      "Title": "Food",
+      "Color": "#9013FE",
+      "DepartmentParent_OID": 900
+    },
+    {
+      "OID": 902,
+      "Title": "Recipes",
+      "Color": "#9013FE",
+      "DepartmentParent_OID": 901
+    },
+    {
+      "OID": 903,
+      "Title": "Restaurants",
+      "Color": "#9013FE",
+      "DepartmentParent_OID": 901
+    },
+    {
+      "OID": 904,
+      "Title": "Home & Garden",
+      "Color": "#9013FE",
+      "DepartmentParent_OID": 900
+    },
+    {
+      "OID": 905,
+      "Title": "Interior Design",
+      "Color": "#9013FE",
+      "DepartmentParent_OID": 904
+    },
+    {
+      "OID": 906,
+      "Title": "Gardening",
+      "Color": "#9013FE",
+      "DepartmentParent_OID": 904
+    },
+    {
+      "OID": 907,
+      "Title": "Wellness",
+      "Color": "#9013FE",
+      "DepartmentParent_OID": 900
+    },
+    {
+      "OID": 908,
+      "Title": "Fitness",
+      "Color": "#9013FE",
+      "DepartmentParent_OID": 907
+    },
+    {
+      "OID": 909,
+      "Title": "Mental Health",
+      "Color": "#9013FE",
+      "DepartmentParent_OID": 907
+    }
+  ]
+  

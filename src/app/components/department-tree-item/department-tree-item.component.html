@@ -1,0 +1,52 @@
+<div class="tree-item" [ngStyle]="getIndentStyle()" [attr.data-level]="level">
+  <div class="node-container" [ngStyle]="getNodeStyle()" [ngClass]="getNodeClasses()">
+    <div class="node-content">
+      <!-- Expansion toggle for non-leaf nodes -->
+      <button 
+        *ngIf="!node.isLeaf" 
+        class="expand-button" 
+        (click)="onToggleExpansion()"
+        [attr.aria-label]="node.isExpanded ? 'Collapse' : 'Expand'">
+        <span class="expand-icon" [class.expanded]="node.isExpanded">▶</span>
+      </button>
+      
+      <!-- Spacer for leaf nodes -->
+      <div *ngIf="node.isLeaf" class="leaf-spacer"></div>
+      
+      <!-- Selection checkbox for leaf nodes -->
+      <label *ngIf="node.isLeaf" class="checkbox-container">
+        <input 
+          type="checkbox" 
+          [checked]="node.isSelected"
+          (change)="onToggleSelection()"
+          class="node-checkbox">
+        <span class="checkmark"></span>
+      </label>
+      
+      <!-- Department title with tooltip for long text -->
+      <span class="node-title" 
+            [class.selectable]="node.isLeaf"
+            [class.selected]="node.isSelected"
+            [title]="node.Title.length > 50 ? node.Title : ''"
+            (click)="node.isLeaf ? onToggleSelection() : onToggleExpansion()">
+        {{ node.Title }}
+      </span>
+      
+      <!-- Count badge for non-leaf nodes -->
+      <span *ngIf="!node.isLeaf" class="count-badge">
+        {{ node.selectedLeafCount }} / {{ node.leafCount }}
+      </span>
+    </div>
+  </div>
+  
+  <!-- Child nodes with enhanced accordion animation -->
+  <div *ngIf="!node.isLeaf && node.isExpanded" class="children-container">
+    <app-department-tree-item
+      *ngFor="let child of node.children"
+      [node]="child"
+      [level]="level + 1"
+      (selectionToggle)="selectionToggle.emit($event)"
+      (expansionToggle)="expansionToggle.emit($event)">
+    </app-department-tree-item>
+  </div>
+</div> 

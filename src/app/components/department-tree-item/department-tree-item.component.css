@@ -1,0 +1,308 @@
+.tree-item {
+  margin-bottom: 2px;
+  /* Default: normal layout for shallow data */
+}
+
+/* Only apply horizontal layout when deep nesting is enabled */
+.deep-nesting .tree-item {
+  min-width: max-content;
+  white-space: nowrap;
+  display: block; /* Ensure proper block layout */
+}
+
+.node-container {
+  padding: 12px 12px;
+  background: transparent;
+  transition: all 0.3s ease;
+  min-height: auto;
+  word-break: break-word;
+  border-radius: 0 6px 6px 0;
+  margin-bottom: 2px;
+  position: relative;
+  padding-left: 16px;
+  /* Default: normal flex layout */
+  display: flex;
+  align-items: center;
+}
+
+/* Only apply horizontal expansion when deep nesting is enabled */
+.deep-nesting .node-container {
+  min-width: max-content;
+  white-space: nowrap; /* Prevent wrapping in the container */
+}
+
+.node-container::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background: linear-gradient(135deg, var(--node-color, #F52612), rgba(255,255,255,0.1));
+  border-radius: 0 2px 2px 0;
+}
+
+.node-container:hover {
+  background: rgba(255,255,255,0.05);
+  transform: translateX(2px);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+
+.node-container.selected {
+  background: linear-gradient(90deg, rgba(245, 38, 18, 0.1), rgba(245, 38, 18, 0.05));
+}
+
+/* Parent node styling for accordion effect */
+.node-container.parent-node {
+  background: linear-gradient(90deg, rgba(255,255,255,0.03), transparent);
+  border-radius: 6px;
+  margin-bottom: 4px;
+}
+
+.node-container.parent-node:hover {
+  background: linear-gradient(90deg, rgba(255,255,255,0.08), rgba(255,255,255,0.02));
+  transform: translateX(3px);
+}
+
+.node-content {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  min-height: 24px;
+}
+
+.expand-button {
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.2);
+  cursor: pointer;
+  padding: 6px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  transition: all 0.2s ease;
+}
+
+.expand-button:hover {
+  background: var(--node-color, #F52612);
+  border-color: var(--node-color, #F52612);
+  transform: scale(1.1);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+
+.expand-icon {
+  font-size: 10px;
+  color: #e0e0e0;
+  transition: all 0.3s ease;
+  transform: rotate(0deg);
+}
+
+.expand-icon.expanded {
+  transform: rotate(90deg);
+  color: #fff;
+}
+
+.leaf-spacer {
+  width: 20px;
+  height: 20px;
+}
+
+.checkbox-container {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.node-checkbox {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.checkmark {
+  position: relative;
+  display: inline-block;
+  height: 18px;
+  width: 18px;
+  background: #232323;
+  border: 2px solid var(--node-color, #F52612);
+  border-radius: 3px;
+  transition: all 0.2s ease;
+}
+
+.checkbox-container:hover .checkmark {
+  border-color: var(--node-color, #F52612);
+  box-shadow: 0 0 8px rgba(245, 38, 18, 0.3);
+}
+
+.checkbox-container input:checked ~ .checkmark {
+  background: var(--node-color, #F52612);
+  border-color: var(--node-color, #F52612);
+  box-shadow: 0 0 12px rgba(245, 38, 18, 0.4);
+}
+
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+  left: 5px;
+  top: 2px;
+  width: 4px;
+  height: 8px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+.checkbox-container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+.node-title {
+  flex: 1;
+  font-weight: 500;
+  color: #e0e0e0;
+  user-select: none;
+  line-height: 1.4;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  hyphens: auto;
+  /* Default: no max width restriction for normal data */
+  white-space: normal;
+}
+
+/* Only restrict width and prevent wrapping when deep nesting is enabled */
+.deep-nesting .node-title {
+  max-width: 300px;
+  white-space: nowrap; /* Keep text on one line */
+  overflow: hidden;
+  text-overflow: ellipsis; /* Add ... for long text */
+}
+
+.node-title.selectable {
+  cursor: pointer;
+}
+
+.node-title.selected {
+  color: #fff;
+  font-weight: bold;
+}
+
+.node-title.unselected {
+  color: #888;
+}
+
+.count-badge {
+  background: linear-gradient(135deg, var(--node-color, #F52612), rgba(255,255,255,0.1));
+  color: #fff;
+  border-radius: 12px;
+  padding: 4px 10px;
+  font-size: 11px;
+  font-weight: 600;
+  min-width: 35px;
+  text-align: center;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  border: 1px solid rgba(255,255,255,0.2);
+}
+
+.children-container {
+  margin-left: 20px;
+  border-left: 2px solid rgba(255,255,255,0.1);
+  padding-left: 12px;
+  animation: slideDown 0.3s ease-out;
+  position: relative;
+  /* Default: normal layout */
+}
+
+/* Only apply horizontal expansion when deep nesting is enabled */
+.deep-nesting .children-container {
+  min-width: max-content;
+  white-space: nowrap;
+  display: block; /* Ensure proper block layout for children */
+}
+
+/* Ensure child tree items display properly in horizontal mode */
+.deep-nesting .children-container app-department-tree-item {
+  display: block;
+  white-space: nowrap;
+}
+
+.children-container::before {
+  content: '';
+  position: absolute;
+  left: -2px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(180deg, var(--node-color, #F52612), transparent);
+  opacity: 0.3;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    max-height: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    max-height: 2000px;
+    transform: translateY(0);
+  }
+}
+
+/* Add horizontal scroll indicator only for deeply nested content when deep nesting is active */
+.deep-nesting .tree-item[data-level="4"]::after,
+.deep-nesting .tree-item[data-level="5"]::after,
+.deep-nesting .tree-item[data-level="6"]::after {
+  content: "→";
+  position: absolute;
+  right: -20px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #666;
+  font-size: 12px;
+  opacity: 0.7;
+}
+
+/* Responsive adjustments only apply when deep nesting is enabled */
+@media (max-width: 768px) {
+  .deep-nesting .node-title {
+    max-width: 250px;
+  }
+}
+
+@media (max-width: 480px) {
+  .deep-nesting .node-title {
+    max-width: 200px;
+  }
+  
+  .deep-nesting .children-container {
+    margin-left: 15px;
+    padding-left: 8px;
+  }
+}
+
+/* Responsive design */
+@media (max-width: 600px) {
+  .node-container {
+    padding: 6px 8px;
+  }
+  
+  .node-content {
+    gap: 6px;
+  }
+  
+  .node-title {
+    font-size: 14px;
+  }
+  
+  .count-badge {
+    font-size: 11px;
+    padding: 1px 6px;
+  }
+} 

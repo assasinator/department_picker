@@ -1,0 +1,81 @@
+[
+    {
+      "OID": 200,
+      "Title": "Technology",
+      "Color": "#5A5AFF",
+      "DepartmentParent_OID": null
+    },
+    {
+      "OID": 201,
+      "Title": "Gadgets",
+      "Color": "#5A5AFF",
+      "DepartmentParent_OID": 200
+    },
+    {
+      "OID": 202,
+      "Title": "Software",
+      "Color": "#5A5AFF",
+      "DepartmentParent_OID": 200
+    },
+    {
+      "OID": 203,
+      "Title": "Artificial Intelligence",
+      "Color": "#5A5AFF",
+      "DepartmentParent_OID": 200
+    },
+    {
+      "OID": 204,
+      "Title": "Mobile Phones",
+      "Color": "#5A5AFF",
+      "DepartmentParent_OID": 201
+    },
+    {
+      "OID": 210,
+      "Title": "Business",
+      "Color": "#1E8449",
+      "DepartmentParent_OID": null
+    },
+    {
+      "OID": 211,
+      "Title": "Markets",
+      "Color": "#1E8449",
+      "DepartmentParent_OID": 210
+    },
+    {
+      "OID": 212,
+      "Title": "Startups",
+      "Color": "#1E8449",
+      "DepartmentParent_OID": 210
+    },
+    {
+      "OID": 213,
+      "Title": "Personal Finance",
+      "Color": "#1E8449",
+      "DepartmentParent_OID": 210
+    },
+    {
+      "OID": 220,
+      "Title": "Lifestyle",
+      "Color": "#D35400",
+      "DepartmentParent_OID": null
+    },
+    {
+      "OID": 221,
+      "Title": "Health & Wellness",
+      "Color": "#D35400",
+      "DepartmentParent_OID": 220
+    },
+    {
+      "OID": 222,
+      "Title": "Travel",
+      "Color": "#D35400",
+      "DepartmentParent_OID": 220
+    },
+    {
+      "OID": 223,
+      "Title": "Food & Drink",
+      "Color": "#D35400",
+      "DepartmentParent_OID": 220
+    }
+  ]
+  
